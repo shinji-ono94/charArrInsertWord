@@ -9,22 +9,22 @@ int CharSeparate(char* result[],char* str, const char* key){
     // keyを区切りに文字列を分割
     // 1回目
     ptr = strtok(str, key);
-    result[0] = ptr;
-    printf("%s\n", ptr);
+    result[count] = ptr;
+    //printf("%s\n", result[0]);
     count++;
 
     //2回目以降
     while(ptr != NULL){
         ptr = strtok(NULL, key);
         result[count] = ptr;
-        printf("%s\n", ptr);
+        //printf("%s\n", ptr);
         count++;
     }
 
     return 0;
 }
 
-char* CharArrMerge(char* chararr[], int chararr_num,const char* insert_str,int insert_num,const char* merge_str){
+char* CharArrMerge(char const* chararr[], int chararr_num,char const* insert_str,int insert_num,char const* merge_str){
     char* result;
     for(size_t i = 0; i < chararr_num; ++i){
         if(i == insert_num){
@@ -47,9 +47,9 @@ int main(void){
 
     CharSeparate(ptr,org_word, "@");
 
-    char* result = CharArrMerge(ptr, 4,"FLOW1", 2, "@");
+    //char* result = CharArrMerge(ptr, 4,"FLOW1", 2, "@");
 
-    printf("%s\n", result);
+    //printf("%s\n", result);
 
     return 0;
 }
