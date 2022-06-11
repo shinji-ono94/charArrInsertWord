@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h>
+#include <array>
 
-int CharArrSeparate(char* result[],char* chararr, const char* key){
+int CharSeparate(char* result[],char* str, const char* key){
     int count = 0;
     char *ptr;
 
     // keyを区切りに文字列を分割
     // 1回目
-    ptr = strtok(chararr, key);
+    ptr = strtok(str, key);
     result[0] = ptr;
     printf("%s\n", ptr);
     count++;
@@ -23,11 +24,32 @@ int CharArrSeparate(char* result[],char* chararr, const char* key){
     return 0;
 }
 
+char* CharArrMerge(char* chararr[], int chararr_num,const char* insert_str,int insert_num,const char* merge_str){
+    char* result;
+    for(size_t i = 0; i < chararr_num; ++i){
+        if(i == insert_num){
+            strcat(result, insert_str);
+            strcat(result, merge_str);
+        }
+        if(i == chararr_num){
+            strcat(result, chararr[i]);
+            break;
+        }
+        strcat(result, chararr[i]);
+        strcat(result, merge_str);
+    }
+    return result;
+}
+
 int main(void){
     char org_word[100] = "WWWW@XXX@YY@Z.csv";
-    char *ptr[10];
+    char *ptr[4];
 
-    CharArrSeparate(ptr,org_word, "@");
+    CharSeparate(ptr,org_word, "@");
+
+    char* result = CharArrMerge(ptr, 4,"FLOW1", 2, "@");
+
+    printf("%s\n", result);
 
     return 0;
 }
