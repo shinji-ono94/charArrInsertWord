@@ -46,10 +46,8 @@ int CharArrInsertWord(char *result, char* str, char const* insert_str,int insert
     char *ptr;
 
     //文字列がkeyを含まなければエラー
-    // char *check = strstr(str, key);
-    // if(check){
-    //     return -1;
-    // }
+    char *find = strstr(str, key);
+    if(find == NULL) return -1;
 
     // keyを区切りに文字列を分割
     // 1回目

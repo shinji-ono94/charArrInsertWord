@@ -25,8 +25,20 @@ Note left of 1: 不具合２
 
 ## 不具合
 1. CharSeparateで分割した配列の０列目が空？？？
-2. CharArrMergeで↓のエラーメッセージが出る。  
+  一旦無かったことに
+1. CharArrMergeで↓のエラーメッセージが出る。
+  一旦無かったことに  
 ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+
+1. resultの先頭にaが入る。
+```
+ptr WWWW count 0
+ptr XXX count 1 
+ptr YY count 2
+ptr Z.csv count 3
+ptr (null) count 4
+result aWWWW@XXX@YY@FLOW1@Z.csv
+```
 
 ## 参考URL
 [マークダウンでフローチャート](https://qiita.com/yoktave-yoknel/items/b923fe2b9206beab700c)  
