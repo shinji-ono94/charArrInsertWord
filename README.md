@@ -24,10 +24,10 @@ Note left of 1: 不具合２
 ```
 
 ## 不具合
-1. CharSeparateで分割した配列の０列目が空？？？
-  一旦無かったことに
-1. CharArrMergeで↓のエラーメッセージが出る。
-  一旦無かったことに  
+1. CharSeparateで分割した配列の０列目が空？？？  
+一旦無かったことに
+1. CharArrMergeで↓のエラーメッセージが出る。  
+一旦無かったことに  
 ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
 
 1. resultの先頭にaが入る。
