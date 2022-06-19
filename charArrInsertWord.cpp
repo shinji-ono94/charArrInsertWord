@@ -10,7 +10,7 @@ int CharSeparate(char* result[],char* str, const char* key){
     // 1回目
     ptr = strtok(str, key);
     result[count] = ptr;
-    //printf("%s\n", result[0]);
+    printf("%s\n", result[0]);
     count++;
 
     //2回目以降
@@ -24,8 +24,7 @@ int CharSeparate(char* result[],char* str, const char* key){
     return 0;
 }
 
-char* CharArrMerge(char const* chararr[], int chararr_num,char const* insert_str,int insert_num,char const* merge_str){
-    char* result;
+int CharArrMerge(char *result, char *chararr[], int chararr_num,char const* insert_str,int insert_num,char const* merge_str){
     for(size_t i = 0; i < chararr_num; ++i){
         if(i == insert_num){
             strcat(result, insert_str);
@@ -38,18 +37,40 @@ char* CharArrMerge(char const* chararr[], int chararr_num,char const* insert_str
         strcat(result, chararr[i]);
         strcat(result, merge_str);
     }
-    return result;
+    return 0;
+}
+
+int CharArrInsertWord(char *result, char* str, char const* insert_str,int insert_num,const char* key){
+    int count = 0;
+    char *ptr;
+
+    // keyを区切りに文字列を分割
+    // 1回目
+    ptr = strtok(str, key);
+    strcat(result, ptr);
+    count++;
+
+    //2回目以降
+    while(ptr != NULL){
+        if(count == insert_num){
+            strcat(result, insert_str);
+            strcat(result, key);
+        }
+        ptr = strtok(NULL, key);
+        strcat(result, ptr);
+        if(ptr != NULL) strcat(result, key);
+        //printf("%s\n", ptr);
+        count++;
+    }
+
+    return 0;
 }
 
 int main(void){
-    char org_word[100] = "WWWW@XXX@YY@Z.csv";
-    char *ptr[4];
+    char org_word[] = "WWWW@XXX@YY@Z.csv";
+    char *result;
 
-    CharSeparate(ptr,org_word, "@");
-
-    //char* result = CharArrMerge(ptr, 4,"FLOW1", 2, "@");
-
-    //printf("%s\n", result);
+    int retvl = CharArrInsertWord(result, org_word, "FLOW1", 2, "@");
 
     return 0;
 }
