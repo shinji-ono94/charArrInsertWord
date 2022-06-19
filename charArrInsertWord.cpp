@@ -76,7 +76,7 @@ int CharArrInsertWord(char *result, char* str, char const* insert_str,int insert
 
 int main(void){
     char org_word[] = "WWWW@XXX@YY@Z.csv";
-    char result[100];
+    char result[100] = "";
 
     int retvl = CharArrInsertWord(result, org_word, "FLOW1", 3, "@");
 
