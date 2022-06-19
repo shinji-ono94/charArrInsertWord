@@ -30,7 +30,8 @@ Note left of 1: 不具合２
 一旦無かったことに  
 ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
 
-1. resultの先頭にaが入る。
+1. resultの先頭にaが入る。  
+**resultに初期値入れると解決**
 ```
 ptr WWWW count 0
 ptr XXX count 1 
