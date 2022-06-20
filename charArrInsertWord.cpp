@@ -76,11 +76,16 @@ int CharArrInsertWord(char *result, char* str, char const* insert_str,int insert
 
 int main(void){
     char org_word[] = "WWWW@XXX@YY@Z.csv";
-    char result[100] = "";
+    char str[256];
+    
+    for(int i=0; i<10; i++){
+        strcpy(str,org_word);
+        char result[100] = "";
 
-    int retvl = CharArrInsertWord(result, org_word, "FLOW1", 3, "@");
+        int retvl = CharArrInsertWord(result, str, "FLOW1", 3, "@");
 
-    printf("result %s",result);
+        printf("result %s\n",result);
+    }
 
     return 0;
 }
